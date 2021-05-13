@@ -1,4 +1,4 @@
-﻿using Pair_Programming.Rooms;
+using Pair_Programming.Rooms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +47,8 @@ namespace Pair_Programming
 
             NavRoomOne();
         }
+        //PlayerStats player = new PlayerStats();
+        //SubBoss boss = new SubBoss();
 
         //roomNavigations
         public void NavRoomOne()
@@ -210,7 +212,13 @@ namespace Pair_Programming
                     switch (input)
                     {
                         case "1":
-                            //Poisoned();
+                            Console.Clear();
+                            Console.WriteLine("if there was a health stat coded in.. youd probably be dead\n" +
+                                "AND HAVE TO START ALL OVER....\n" +
+                                "...\n" +
+                                "lucky you");
+                            Console.ReadKey();
+                            Console.Clear();
                             break;
                         case "2":
                             roomFour = false;
@@ -240,7 +248,8 @@ namespace Pair_Programming
                 switch (input)
                 {
                     case "1":
-                        BattleSequence();
+                        WeaponChoice();
+                        //BattleSequence();
                         break;
                     case "2":
                         roomFive = false;
@@ -293,7 +302,7 @@ namespace Pair_Programming
         {
             if (hasMug == true)
             {
-                //player health is replenished and gains defense bonus
+                Console.WriteLine("Oh wow! if there was a health stat coded in, it would surely be maxed right now.");
             }
             else
             {
@@ -379,7 +388,7 @@ namespace Pair_Programming
             }
 
         }
-
+    
 
 
 
@@ -561,8 +570,57 @@ namespace Pair_Programming
         }
 
 
+        //public void BattleSequence()
+        //{
+        //    while (player.Health > 0)
+        //    {
+        //        if(boss.Health <= 0)
+        //        {
 
-        public void BattleSequence()
+
+        //        }
+        //        else
+        //        {
+
+        //        }
+        //    }
+
+        //}
+
+        public void Winning()
+        {
+            Console.Clear();
+            Console.WriteLine("You defeated **boss name here** \n" +
+                "\n" +
+                "You notice a key attached to his belt.\n" +
+                "Take the key? (y/n)\n" +
+                "");
+            string input = Console.ReadLine();
+            switch (input.ToLower())
+            {
+                case "y":
+                    Console.Clear();
+                    Console.WriteLine("You now have a key! I wonder what it unlocks." +
+                        "\n" +
+                        "Press any key to continue.. (you will be directed back to the previous room)");
+                    hasKey = true;
+                    Console.Clear();
+                    NavRoomThree();
+                    break;
+                case "n":
+                    Console.Clear();
+                    Console.WriteLine("Okay.. well, good luck with doing all of that again");
+                    Console.ReadKey();
+                    NavRoomThree();
+                    break;
+                default:
+                    Console.WriteLine("Not a valid input");
+                    Console.Clear();
+                    break;
+            }
+        }
+
+        public void WeaponChoice()
         {
             Console.Clear();
             Console.WriteLine("What would you like to use as your weapon?");
@@ -589,16 +647,25 @@ namespace Pair_Programming
             switch (input.ToLower())
             {
                 case "broom":
-
+                    Console.WriteLine("You fight valiently, buuut unfortunately you weren't able to beat him\n" +
+                        "you barely manage to get out before his final blow");
+                    Console.ReadKey();
                     break;
+                case "rusty sword":
                 case "sword":
-
+                    Console.Clear();
+                    Console.WriteLine("It took a while, but you managed to take him down!");
+                    Console.ReadKey();
+                    Winning();
                     break;
                 case "lightsaber":
-
+                    Console.Clear();
+                    Console.WriteLine("Oh wow.. you destroyed him.. Poor guy");
+                    Console.ReadKey();
+                    Winning();
                     break;
                 default:
-
+                    Console.WriteLine("not a valid input");
                     break;
             }
         }
@@ -609,16 +676,21 @@ namespace Pair_Programming
             Console.Clear();
             if (hasKey == true)
             {
+                Console.Clear();
                 Console.WriteLine("You managed to escape the dungeon!\n" +
                     "...What took you so long?");
+                Console.Clear();
+                Console.ReadKey();
+                Intro();
             }
             else
             {
+                Console.Clear();
                 Console.WriteLine("The door is locked.. You might be able to find a key somewhere \n" +
                     " \n" +
                     "Press any key to continue.");
                 Console.ReadKey();
-                Intro();
+                NavRoomOne();
             }
         }
 
