@@ -85,9 +85,9 @@ namespace Pair_Programming
             return new Attack(1, 10, DamageType.Magic, "Magic Sword Attack");
         }
 
-        public Attack HyrdokineticSlay()
+        public Attack HydrokineticSlay()
         {
-            return new Attack(1, 10, DamageType.Water, "Pyrokinetic Whip Attack");
+            return new Attack(1, 10, DamageType.Water, "Hydrokinetic Whip Attack");
         }
 
         public Attack ElectromagneticShock()
