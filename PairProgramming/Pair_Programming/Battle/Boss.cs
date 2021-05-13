@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -93,6 +93,11 @@ namespace Pair_Programming
         public Attack ElectromagneticShock()
         {
             return new Attack(1, 10, DamageType.Shocking, "Electromagnetic Attack");
+        }
+
+        public Attack BroomAttack()
+        {
+            return new Attack(1, 10, DamageType.Sword, "Swish swish");
         }
     }
 }
